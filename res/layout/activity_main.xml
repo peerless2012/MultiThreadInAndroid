@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.peerless2012.multithreadinandroid.main.MainActivity" >
+
+    <Button
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Loader"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/async_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="AsyncTask"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/handle_thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="HandleThread"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/intent_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Intent_service"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/thread_pool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="ThreadPool"
+        android:textSize="20sp" />
+
+</LinearLayout>
