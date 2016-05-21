@@ -5,5 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_loader">LoaderActivity</string>
+    <string name="title_intent_service">IntentService</string>
+    <string name="title_activity_async_task">AsyncTaskActivity</string>
+    <string name="title_activity_cursor_loader">CursorLoaderActivity</string>
+    <string name="title_activity_thread_pool">ThreadPoolActivity</string>
+    <string name="title_activity_handle_thread">HandleThreadActivity</string>
 
 </resources>

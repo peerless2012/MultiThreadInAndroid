@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.peerless2012.multithreadinandroid.main.MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +22,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Loader -->
         <activity
             android:name=".LoaderActivity"
             android:label="@string/title_activity_loader" >
+        </activity>
+
+        <!-- CursorLoader -->
+        <activity
+            android:name="com.peerless2012.multithreadinandroid.loader.cursor.CursorLoaderActivity"
+            android:label="@string/title_activity_cursor_loader" >
+        </activity>
+
+        <!-- IntentService -->
+        <activity android:name=".intentservice.DataUploadActivity" 
+            android:label="@string/title_intent_service"/>
+
+        <service android:name=".intentservice.DataUploadService" />
+
+        <!-- HandleThread -->
+        <activity
+            android:name="com.peerless2012.multithreadinandroid.handlethread.HandleThreadActivity"
+            android:label="@string/title_activity_handle_thread" >
+        </activity>
+
+
+        <!-- AsyncTask -->
+        <activity
+            android:name="com.peerless2012.multithreadinandroid.asynctask.AsyncTaskActivity"
+            android:label="@string/title_activity_async_task" >
+        </activity>
+
+        <!-- ThreadPool -->
+        <activity
+            android:name="com.peerless2012.multithreadinandroid.threadpool.ThreadPoolActivity"
+            android:label="@string/title_activity_thread_pool" >
         </activity>
     </application>
 

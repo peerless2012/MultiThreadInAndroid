@@ -3,6 +3,7 @@ package com.peerless2012.multithreadinandroid.main;
 import com.peerless2012.multithreadinandroid.R;
 import com.peerless2012.multithreadinandroid.R.id;
 import com.peerless2012.multithreadinandroid.R.layout;
+import com.peerless2012.multithreadinandroid.intentservice.DataUploadActivity;
 import com.peerless2012.multithreadinandroid.loader.normal.LoaderActivity;
 
 import android.app.Activity;
@@ -17,6 +18,10 @@ public class MainActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		findViewById(R.id.loader).setOnClickListener(this);
+		findViewById(R.id.async_task).setOnClickListener(this);
+		findViewById(R.id.handle_thread).setOnClickListener(this);
+		findViewById(R.id.intent_service).setOnClickListener(this);
+		findViewById(R.id.thread_pool).setOnClickListener(this);
 	}
 
 
@@ -25,6 +30,10 @@ public class MainActivity extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.loader:
 			LoaderActivity.launch(this);
+			break;
+			
+		case R.id.intent_service:
+			DataUploadActivity.launch(this);
 			break;
 
 		default:
