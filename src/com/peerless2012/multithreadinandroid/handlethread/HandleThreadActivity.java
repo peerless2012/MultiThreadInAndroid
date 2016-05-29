@@ -1,39 +1,73 @@
 package com.peerless2012.multithreadinandroid.handlethread;
 
 import com.peerless2012.multithreadinandroid.R;
-import com.peerless2012.multithreadinandroid.R.id;
-import com.peerless2012.multithreadinandroid.R.layout;
-import com.peerless2012.multithreadinandroid.R.menu;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
 
 public class HandleThreadActivity extends Activity {
 
+	private HandlerThread mHandleThread;
+	
+	private Looper mHandlerLooper;
+	
+	private Handler mWorkHandler;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_handle_thread);
+		initHandlerThread();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.handle_thread, menu);
-		return true;
+	public void doWorkInWorkThread(View v) {
+		mWorkHandler.sendEmptyMessage(0);
 	}
-
+	
+	private void initHandlerThread() {
+		mHandleThread = new HandlerThread("WorkThread");
+		mHandleThread.start();
+		mHandlerLooper = mHandleThread.getLooper();
+		mWorkHandler = new Handler(mHandlerLooper){
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				Log.i("HandleThreadActivity", "doSomeThing + thread id = "+ Thread.currentThread().getId()+"   ,name = "+Thread.currentThread().getName());
+			}
+		};
+	}
+	
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	protected void onDestroy() {
+		releaseHandlerThread();
+		super.onDestroy();
+	}
+	
+	@SuppressLint("NewApi")
+	private void releaseHandlerThread() {
+		mWorkHandler.removeCallbacksAndMessages(null);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			mHandlerLooper.quitSafely();
+			mHandleThread.quitSafely();
+		}else {
+			mHandlerLooper.quit();
+			mHandleThread.quit();
 		}
-		return super.onOptionsItemSelected(item);
+	}
+	
+	public static void launch(Context context) {
+		Intent intent = new Intent(context, HandleThreadActivity.class);
+		context.startActivity(intent);
+		
 	}
 }

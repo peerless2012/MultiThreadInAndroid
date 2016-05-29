@@ -3,6 +3,8 @@ package com.peerless2012.multithreadinandroid.main;
 import com.peerless2012.multithreadinandroid.R;
 import com.peerless2012.multithreadinandroid.R.id;
 import com.peerless2012.multithreadinandroid.R.layout;
+import com.peerless2012.multithreadinandroid.asynctask.AsyncTaskActivity;
+import com.peerless2012.multithreadinandroid.handlethread.HandleThreadActivity;
 import com.peerless2012.multithreadinandroid.intentservice.DataUploadActivity;
 import com.peerless2012.multithreadinandroid.loader.normal.LoaderActivity;
 
@@ -32,8 +34,16 @@ public class MainActivity extends Activity implements OnClickListener{
 			LoaderActivity.launch(this);
 			break;
 			
+		case R.id.async_task:
+			AsyncTaskActivity.launch(this);
+			break;
+			
 		case R.id.intent_service:
 			DataUploadActivity.launch(this);
+			break;
+			
+		case R.id.handle_thread:
+			HandleThreadActivity.launch(this);
 			break;
 
 		default:

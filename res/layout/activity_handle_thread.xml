@@ -8,9 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.peerless2012.multithreadinandroid.handlethread.HandleThreadActivity" >
 
-    <TextView
+    <Button
+        android:onClick="doWorkInWorkThread"
+        android:id="@+id/handle_thread_work"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="在子线程中执行任务" />
 
 </RelativeLayout>
