@@ -7,6 +7,7 @@ import com.peerless2012.multithreadinandroid.asynctask.AsyncTaskActivity;
 import com.peerless2012.multithreadinandroid.handlethread.HandleThreadActivity;
 import com.peerless2012.multithreadinandroid.intentservice.DataUploadActivity;
 import com.peerless2012.multithreadinandroid.loader.normal.LoaderActivity;
+import com.peerless2012.multithreadinandroid.threadpool.ThreadPoolActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -44,6 +45,10 @@ public class MainActivity extends Activity implements OnClickListener{
 			
 		case R.id.handle_thread:
 			HandleThreadActivity.launch(this);
+			break;
+			
+		case R.id.thread_pool:
+			ThreadPoolActivity.launch(this);
 			break;
 
 		default:
